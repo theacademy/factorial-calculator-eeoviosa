@@ -64,7 +64,7 @@ public class Factorial {
 		 
 		int result = 1;
 		//YOUR CODE STARTS HERE
-		//calculate factorial by multiplying all values up to num inclusive
+		//calculate factorial by multiplying all values up to num inclusive.
  		for (int i = 2; i <= num; i++) {
 			 result *= i;
 		}
