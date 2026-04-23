@@ -10,7 +10,6 @@ public class Factorial {
 	 private Scanner scanner;
 	 private PrintStream printStream;
 	 private int num;
-	 
 
 	 public Factorial(InputStream inputStream, PrintStream printStream) {
 	      this.scanner = new Scanner(inputStream);
@@ -35,14 +34,26 @@ public class Factorial {
 
 		//YOUR CODE STARTS HERE
 
-		return -1;
+		 //Validate input within constraints and deal other invalid inputs.
+		 if(this.scanner.hasNextInt())
+		 {
+			 num = this.scanner.nextInt();
+			 if(num > 0 && num <= 10) {
+				 return num;
+			 }
+		 }
+		 else
+		 {
+			this.scanner.next(); //Clear invalid input from buffer
+		 }
 
+		 this.printStream.print("Invalid entry. Please enter an integer between 1 and 10, inclusive.");
+		 return -1;
 		//YOUR CODE ENDS HERE
 		 
 			
 	 }
-	
-	 
+
 	 private void calculateFactorial(int num) {
 		
 		  /*
@@ -53,8 +64,10 @@ public class Factorial {
 		 
 		int result = 1;
 		//YOUR CODE STARTS HERE
-
- 
+		//calculate factorial by multiplying all values up to num inclusive
+ 		for (int i = 2; i <= num; i++) {
+			 result *= i;
+		}
 
 		//YOUR CODE ENDS HERE
 		this.printStream.print("The Factorial is: " + result);		
